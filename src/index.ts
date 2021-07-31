@@ -4,7 +4,7 @@ import httpRequestLogger from 'morgan';
 import http from 'http';
 
 import { logger } from './services/logger';
-import userRouter from './routes/user.routes';
+import dataRouter from './routes/data.routes';
 
 dotenv.config();
 
@@ -17,7 +17,7 @@ app.use(httpRequestLogger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/user', userRouter);
+app.use('/data', dataRouter);
 
 const server = http.createServer(app);
 
