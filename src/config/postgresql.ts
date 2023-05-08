@@ -1,6 +1,9 @@
 import { Sequelize } from "sequelize";
+import * as dotenv from "dotenv";
 
-const sq = new Sequelize("postgres://erikpaluka:1234@127.0.0.1:5432/integrity");
+dotenv.config();
+
+const sq = new Sequelize(process.env.POSTGRESQL_URL as string);
 
 export const testDbConnection = async () => {
   try {

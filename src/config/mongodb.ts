@@ -1,6 +1,9 @@
 import { default as mg } from "mongoose";
+import * as dotenv from "dotenv";
 
-mg.connect("mongodb://localhost/integrity").catch((error) =>
+dotenv.config();
+
+mg.connect(process.env.MONGODB_URL as string).catch((error) =>
   console.error(error)
 );
 

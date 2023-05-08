@@ -14,9 +14,10 @@ if (process.env.DATABASE === "postgresql") {
       allowNull: false,
       primaryKey: true,
     },
-    hashes: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+    transactions: {
+      type: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.STRING)),
       allowNull: true,
+      defaultValue: [[]],
     },
   });
 
@@ -30,6 +31,10 @@ if (process.env.DATABASE === "postgresql") {
     {
       _id: {
         type: String,
+      },
+      transactions: {
+        type: [[String]],
+        //defaultValue: [[]],
       },
     },
     { collection: "users" }
